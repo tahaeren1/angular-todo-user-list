@@ -1,0 +1,36 @@
+<mat-card class="card">
+    <mat-card-title> Todo Create Form</mat-card-title>
+
+    <mat-card-subtitle>
+        Create new Todo<br>
+    </mat-card-subtitle>
+
+    <mat-card-content>
+
+
+
+        <form fxFlex="row" fxFlex="50" fxFlexOffset="2" fxLayout="space-around" [formGroup]="todoForm">
+
+            <div fxLayout="column" fxFlex="70">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="Title" formControlName="title" value="Sushi">
+                </mat-form-field>
+                
+                <div style="margin-bottom: 10px;" fxLayoutAlign="end">
+                    <mat-checkbox [checked]="todoForm.get('completed').value" >
+                        Is Completed
+                     </mat-checkbox>
+                </div>
+
+                <button mat-raised-button color="accent" (click)="Save()">Save</button>
+
+            </div>
+
+        </form>
+
+
+
+    </mat-card-content>
+</mat-card>

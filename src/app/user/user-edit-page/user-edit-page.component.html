@@ -1,0 +1,29 @@
+
+
+<!-- [formGroup] reactive formdan gelen bir directive olup form içerisindeki inputları validasyonları kontrol form içerisindeki alanlara erişmemiz sağlar -->
+
+<!-- value alanı yerine artık formControlName üzerinden formdaki verilerin değerleri okuyacağız -->
+
+<!-- userForm.get('name') iligli form control alanına erişmemizi sağlıyor -->
+
+<!-- userForm.invalid form valid değil ise -->
+
+<!-- ngIf ile user nesnesi dolduktan sonra formu göster yaparsak hataları ortadan kaldırırız -->
+
+<form *ngIf="user" method="POST" [formGroup]="userForm">
+    <!-- <input type="text" [hidden]="true" formControlName="id" placeholder="id"> -->
+    <input type="text" formControlName="name" placeholder="name">
+    <span *ngIf="userForm.get('name')?.errors?.required" style="color:red"> * Name alanı boş geçilemez </span>
+    <br>
+    <input type="text" formControlName="email" placeholder="email" >
+    <span *ngIf="userForm.get('email')?.errors?.required" style="color:red"> * Email alanı boş geçilemez </span>
+    <span *ngIf="userForm.get('email')?.errors?.email" style="color:red"> * Email formatında giriniz</span>
+    <br>
+    <input type="text" formControlName="username" placeholder="user name">
+    <br>
+    <input type="text" formControlName="phone" placeholder="phone">
+    <br>
+    <input type="text"  formControlName="website" placeholder="website">
+    <br>
+    <input type="button" [disabled]="userForm.invalid" (click)="save()" value="Save">
+</form> 

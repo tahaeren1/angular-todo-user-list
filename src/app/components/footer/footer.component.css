@@ -1,0 +1,8 @@
+.footer-menu {
+    width:100%; 
+    min-height: 5rem; 
+    background-color: gainsboro; 
+    text-align: center; 
+    line-height: 5rem;
+    bottom:0;
+}

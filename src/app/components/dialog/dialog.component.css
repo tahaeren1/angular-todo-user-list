@@ -1,0 +1,15 @@
+.success-header {
+    background-color: #d4edda;
+    color:#155724;
+    border-color: #c3e6cb;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.error-header {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    box-sizing: border-box;
+    padding: 1rem;
+}

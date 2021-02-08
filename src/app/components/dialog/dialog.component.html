@@ -1,0 +1,27 @@
+<h1 mat-dialog-title >Form Dialog</h1>
+<div mat-dialog-content>
+    <p *ngIf="data.IsSucceded" [ngClass]="data.IsSucceded ? 'success-header':'error-header'">
+
+        <span class="material-icons">
+            done_all
+        </span>
+
+        {{data.SuccessMessage}}
+
+    </p>
+    <p *ngIf="!data.IsSucceded" [ngClass]="data.IsSucceded ? 'success-header':'error-header'">
+
+        <span class="material-icons">
+            error
+        </span>
+
+        {{data.ErrorMessage}}
+    </p>
+</div>
+<div mat-dialog-actions>
+
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="end end">
+        <button mat-button (click)="close()">Kapat</button>
+    </div>
+
+</div> 

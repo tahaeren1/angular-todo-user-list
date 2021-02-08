@@ -1,0 +1,25 @@
+
+
+
+<button mat-icon-button [matMenuTriggerFor]="menu" >
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="Detail(recordId)">
+      <mat-icon>info</mat-icon>
+      <span>Detail</span>
+    </button>
+    <button mat-menu-item (click)="Edit(recordId)">
+      <mat-icon>create</mat-icon>
+      <span>Edit</span>
+    </button>
+    <button mat-menu-item (click)="Delete(recordId)">
+      <mat-icon>delete</mat-icon>
+      <span>Delete</span>
+    </button>
+  </mat-menu>
+
+
+
+  
+

@@ -1,0 +1,4 @@
+.backdropClass {
+    background-color: red;
+    z-index: 9999999;
+}

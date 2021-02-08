@@ -1,0 +1,8 @@
+.header-menu {
+
+    width:100%; 
+    background-color: gainsboro; 
+    padding: 1rem; 
+    box-sizing: border-box; 
+    min-height: 5rem;
+}

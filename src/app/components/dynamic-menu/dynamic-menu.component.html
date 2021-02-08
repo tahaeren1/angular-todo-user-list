@@ -1,0 +1,20 @@
+
+
+
+<button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+
+    <!-- 1. parametre ise sıralanacak property 'propertyName' olarak yazılır -->
+    <!-- 2. paramatere ters sıralamak için true olarak değiştirilir -->
+    <!-- 3. parametre ise küçük büyük harfi dikkate almayı gösterir genelde true seçeriz ki küçük büyük harfe göre sırlamayı bozmasın -->
+
+    <!-- menuList sayısı kadar dönüp dinamic menuleri icon name göre oluşturduk -->
+
+    <a *ngFor="let menuItem of menuList | orderBy:  'sort': false: true" mat-menu-item  routerLink="/{{baseUrl}}/{{menuItem.path}}/{{recordId}}">
+        <mat-icon>{{menuItem.icon}}</mat-icon>
+        <span>{{menuItem.name}}</span>
+    </a>
+
+</mat-menu>

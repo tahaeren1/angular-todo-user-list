@@ -1,0 +1,64 @@
+<div fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
+
+  <!-- matSort sırlama işlemi için matSort directive tanımladık -->
+
+
+
+  <div fxLayout="column" fxFlex="100">
+
+    <!-- input eventi her bir klavyeden tuşa basılınca çalışır. tetiklenir -->
+    <mat-form-field fxFlex="100" appearance="fill">
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Search" value="" (input)="filter($event.target.value)">
+    </mat-form-field>
+
+
+    <table fxFlex="100" mat-table [dataSource]="dataSource" matSort width="100%">
+
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <app-table-menu 
+          [recordId]="element.id" 
+          [baseRoute]="'todo'"
+          ></app-table-menu>
+
+          <!-- <app-dynamic-menu [additionalMenus]="additionalMenus" [baseUrl]="'todo'" [recordId]="element.id">
+          </app-dynamic-menu> -->
+        </td>
+      </ng-container>
+
+
+      <!-- mat-sort-header directive ile sortlanabilir olur -->
+
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+
+      <!-- completed Column -->
+      <ng-container matColumnDef="completed">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Completed </th>
+
+        <!-- pipe kullanmak için value | pipeİsmi  bu formatta kullanırız -->
+
+        <td mat-cell *matCellDef="let element"> {{element.completed | complete}} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- [pageSize]="20" ise default da kaçarlı geleceğini ayarlar -->
+
+    </table>
+    <mat-paginator permission permissionName='paginator-access' [pageSize]="20" [pageSizeOptions]="[5, 10, 20, 50, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+
+
+</div>

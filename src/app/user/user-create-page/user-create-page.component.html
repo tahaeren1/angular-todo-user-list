@@ -1,0 +1,70 @@
+
+<!-- angular template form ve angular reactive form olmak üzere 2 farklı form kullanım şekli var -->
+
+
+<!-- template form örneği -->
+
+<!-- [value] inputlar için kullanılır inputta ilk değeri value attibute ile veriririz (change) ise ilgili input değiştiğinde tetiklenen angular event -->
+<!-- $event bize üzerinde suan çalıştığımı inputun değerine erişmemiz sağlayan bir angular servistir.  -->
+<!-- $event.target.value o anki değişen değeri bize verir -->
+
+<!-- 1.yöntem -->
+<!-- value ile ve change yaptığımız bu yöntem aslında two-data-binding oluyor -->
+<!-- value ile data-binding işlemi one way data bindingtir. -->
+<!-- input eventi textbox herbir değişiminde tetiklenen event iken change eventi ise input işlem bitip tab ile diğer inputa geçtiğimizde tetiklenir -->
+
+<!-- <form method="POST">
+    <input type="text" [value]="user.name" placeholder="user name" (change)="user.name = $event.target.value">
+    <br>
+    <input type="text" [value]="user.email" placeholder="email" (change)="user.email = $event.target.value">
+    <br>
+    <input type="text" [value]="user.username" placeholder="username" (input)="user.username = $event.target.value">
+    <br>
+    <input type="text" [value]="user.phone" placeholder="phone" (change)="user.phone = $event.target.value">
+    <br>
+    <input type="text" [value]="user.website" placeholder="website" (change)="user.website = $event.target.value">
+    <br>
+    <input type="button" (click)="save()" value="Save">
+</form> -->
+
+
+<!-- 2.yöntem  -->
+<!-- two-way-data-bindig ise ngModel ile yapılır -->
+
+<!-- angular form template directive ngForm bu sayede angular için userForm adında bir template form oluşmuş oluyor -->
+<!-- #userForm idsi ile form alanlarına erişebilmemiz sağlanıyor -->
+
+<!-- #userEmailControl="ngModel" input üzerinden validasyonları kontrol etmek için ngModel directive -->
+<!-- #userForm="ngForm" form üzerinden validasyonları kontrol etmek için ise ngForm directive kullanırız  -->
+
+<!-- angular forms da template form kullanım özelliği diyoruz -->
+
+<!--  [(ngModel)]="user.email" change eventi olamadan modeldeki değişimi yakalayabilir. Bu sebep ile bu kullanıma biz two way data binding diyoruz -->
+
+
+<!-- ngForm userForm idsi ile template üzerinde tanımlanmış bir form değişkeni oldu -->
+<!-- ngModel directive ise bir inputu id si üzerinden control değişkeni tanımlar -->
+
+<!-- html form üzerinde çalışma yöntemine Angular Form Template ismini veriyoruz -->
+<!-- Angular template Form yöntemi ile çalışabilmek için FormsModule AppModule import ettik -->
+
+<form method="POST" #userForm="ngForm">
+    <input type="text" name="user.name" [(ngModel)]="user.name" required placeholder="user name">
+    <span *ngIf="userForm.controls['user.name']?.errors?.required" style="color:red"> * Name alanı boş geçilemez </span>
+    <br>
+    <input type="text" name="user.email"  [(ngModel)]="user.email" placeholder="email" required email #userEmailControl="ngModel">
+    <span *ngIf="userForm.getControl(userEmailControl)?.errors?.required" style="color:red"> * Email alanı boş geçilemez </span>
+    <span *ngIf="userForm.getControl(userEmailControl)?.errors?.email" style="color:red"> * Email formatında giriniz</span>
+    <br>
+    <input type="text" name="user.username" [(ngModel)]="user.username" placeholder="username">
+    <br>
+    <input type="text" name="user.phone" [(ngModel)]="user.phone" placeholder="phone">
+    <br>
+    <input type="text"  name="user.website" [(ngModel)]="user.website"  placeholder="website">
+    <br>
+    <input type="button" (click)="save()" value="Save">
+</form> 
+
+
+Two Way : {{user?.username}}
+

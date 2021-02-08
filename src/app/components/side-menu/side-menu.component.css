@@ -1,0 +1,18 @@
+.side-menu {
+
+    height: 5rem; 
+    width:100%; color:red; 
+    text-align: center; 
+    line-height: 5rem; 
+    font-size: 24px;
+    
+}
+
+nav {
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+nav > a {
+    width: 100%;
+}

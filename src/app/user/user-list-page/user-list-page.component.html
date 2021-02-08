@@ -1,0 +1,77 @@
+
+
+<table width="100%" border="1">
+    <thead>
+        <th>
+            Action
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            UserName
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Address
+        </th>
+
+        <th>
+            Phone
+        </th>
+
+        <th>
+            WebSite
+        </th>
+
+        <th>
+            Company
+        </th>
+
+    </thead>
+    <tbody>
+
+        <!-- directive html elementlerine müdehale etmemizi sağlayan angular yapısıdır -->
+
+
+        <tr *ngFor="let user of users">
+            <td>
+                <!-- <a routerLink="/user-detail/{{user.id}}"> Detay</a>
+                <br>
+                <a routerLink="/user-delete/{{user.id}}"> Delete</a>
+                <br>
+                <a routerLink="/user-edit/{{user.id}}"> Edit</a> -->
+
+                <app-table-menu 
+                [recordId]="user.id" 
+                [baseRoute]="'user'"
+                ></app-table-menu>
+
+            </td>
+            <td>
+                {{user.name}}
+            </td>
+            <td>
+                {{user.username}}
+            </td>
+            <td>
+                {{user.email}}
+            </td>
+            <td>
+                <!-- null kontrolü yapıyoruz -->
+                {{user?.address?.street}} - {{user?.address?.city}} / {{user?.address?.zipcode}}
+            </td>
+            <td>
+                {{user.phone}}
+            </td>
+            <td>
+                {{user.website}}
+            </td>
+            <td>
+                {{user?.company?.name}}
+            </td>
+        </tr>
+    </tbody>
+</table>

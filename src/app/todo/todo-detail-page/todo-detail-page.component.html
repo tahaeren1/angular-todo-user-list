@@ -1,0 +1,42 @@
+
+
+<div>
+    <a routerLink="/todo/list" mat-raised-button color="primary">List</a>
+    &nbsp;
+    <a permission permissionName="show-todo-edit-button" routerLink="/todo/edit/{{todo?.id}}" mat-raised-button color="accent">Edit</a>
+    &nbsp;
+    <a  routerLink="/todo/delete/{{todo?.id}}" mat-raised-button color="warn">Delete</a>
+</div>
+
+<mat-card  [ngStyle]="{'margin-top':'1em'}">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+
+      <h1>
+        Todo Card
+      </h1>
+ 
+    
+    </mat-card-header>
+
+    <hr>
+
+    <mat-card-content>
+      <p>
+        <span appHighLight>Title : </span> <span>{{todo?.title | uppercase}}</span>
+      </p>
+      <p permission permissionName='todo-completed-field-read-access'>
+        <span appHighLight>Completed : </span> <span>{{todo?.completed | complete | uppercase}}</span>
+      </p>
+      <p>
+          <span appHighLight> UserId :</span> <span>{{todo?.userId}}</span>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <!-- <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button> -->
+    </mat-card-actions>
+  </mat-card>
+  <!-- // 20 dk ara -->

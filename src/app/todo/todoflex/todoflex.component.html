@@ -1,0 +1,100 @@
+<!-- https://material.io/resources/icons/?icon=accessibility&style=baseline -->
+<!-- material icon sitesi -->
+
+<!-- https://tburleson-layouts-demos.firebaseapp.com/#/docs -->
+<!-- angular flex layout sitesi -->
+
+
+<!-- mat-form-field form alanı açan component -->
+<!-- mat-label component -->
+<!-- matInput directive -->
+<!-- mat-checkbox bu bir componenti -->
+<!-- mat-button  directive bir şeyi button oldugunu gösterir -->
+
+<!-- fxLayoutAlign dış container kapsayıcı için kullanılır -->
+
+<!-- fxFill div yüksekliğini sayfa boyutuna göre otomatik ayarlamak için -->
+<div fxLayout="row" fxLayoutAlign="space-between" >
+    <div fxLayout="row" fxFlex="60" style="background-color: #e8fd74" >
+        <div fxFlex="20"  style="background-color: #f1fac0; border:1px blue solid;" fxLayoutAlign="center center">20%</div>
+        <div fxFlex="30"  style="background-color: #f1fac0; border:1px red solid" fxLayoutAlign="center center">30%</div>
+        <div fxFlex="50"  style="background-color: #f1fac0; border:1px green solid" fxLayoutAlign="center center">40%</div>
+    </div>
+    <div fxLayout="row" fxFlex="40" style="background-color: pink;" fxLayoutAlign="center center">
+    
+        Merhaba
+
+    </div>
+</div>
+
+
+
+<div fxLayout="row" fxLayoutAlign="space-around">
+
+    <div fxLayout="row" style="border:1px solid gray" fxFlex="40">
+        <div fxLayout="column" fxFlex="100">
+            <div fxFlexAlign="end" > Liste 1</div>
+            <div fxFlexAlign="center">Liste 2</div>
+            <div fxFlexAlign="start">Liste 3</div>
+        </div>
+    </div>
+
+    <div fxLayout="row" style="border:1px solid red" fxFlex="60">
+        <div  fxFlex="50" fxLayoutAlign="center center"> Yazı 1</div>
+        <div  fxFlex="50" fxLayoutAlign="center center"> Yazı 2</div>
+    </div>
+
+</div> 
+
+
+
+
+
+<!-- fxLayout.xs="column" eğer mobil bir cihazdan giriş yapılıyorsa alt alta gelsin -->
+<!-- fxFlexOrder ile  sayfada divlerin yeri sıralanabilir -->
+
+<!-- fxHide.xs fxHide.sm küçük ekranda gösterme gizle -->
+
+<div fxLayout="column">
+
+    <div fxLayout="row" fxFlex="50px" style="background-color: #74edfd" fxLayoutAlign="center center">header</div>
+
+    <div fxLayout="row wrap" style="height: 150px">
+      <div fxFlexOrder="5" fxLayout="row" fxLayout.xs="column" fxFlex.xs="100" fxFlex.gt-xs="30" style="background-color: #fd7474" fxLayoutAlign="center center">5.sıra</div>
+      <div fxFlexOrder="1" fxLayout="row" fxFlex.xs="100" fxFlex.gt-xs="70" fxFlex.gt-sm="50" style="background-color: #e8fd74" fxLayoutAlign="center center">1.sıra</div>
+      <div fxFlexOrder="3" fxLayout="row" fxHide.xs fxHide.sm fxFlex.gt-sm="20" style="background-color: #74fd86" fxLayoutAlign="center center">3. sıra</div>
+    </div>
+
+    <div fxLayout="row" fxFlex="50px" style="background-color: #74edfd" fxLayoutAlign="center center">footer</div>
+  </div>
+
+
+      <!-- fxFlex.xs en kucuk ekrana göre görünüm -->
+        <!-- fxFlex normal ekran görünümü -->
+
+<mat-card class="card">
+    <mat-card-title>Grid & flex layout</mat-card-title>
+  
+    <mat-card-subtitle>
+      Angular component Grid & Flex  layout.<br>
+    </mat-card-subtitle>
+  
+    <mat-card-content>
+
+
+    
+  
+  <div fxLayout="row wrap">
+    <div fxFlex="25" fxFlex.sm="33.3" fxFlex.xs="100" *ngFor="let tile of [{color:'red',text:'kırmızı'},{color:'blue',text:'Mavi'},{color:'yellow',text:'Sarı'},{color:'gray',text:'Gri'}]">
+      <mat-grid-list cols="1" rowHeight="1:1">
+        <mat-grid-tile [style.background]="tile.color">
+          {{ tile.text }}
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
+  
+    </mat-card-content>
+  </mat-card>
+  
+

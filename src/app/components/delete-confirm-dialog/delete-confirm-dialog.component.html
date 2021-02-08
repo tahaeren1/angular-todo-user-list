@@ -1,0 +1,22 @@
+<h1 mat-dialog-title >
+
+    <span>
+       <mat-icon> warning</mat-icon>   Kayıt silinecek  
+    </span>
+
+</h1>
+<div mat-dialog-content>
+    <p>
+
+        Bu Kaydı silmek istediğinizden emin misiniz ?
+
+    </p>
+</div>
+<div mat-dialog-actions>
+
+    <div fxLayout="row" fxFlex="100" fxLayoutAlign="end end">
+        <button mat-button [mat-dialog-close]="false" mat-dialog-close>Hayır</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial >Evet</button>
+    </div>
+
+</div> 
